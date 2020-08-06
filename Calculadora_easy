@@ -1,0 +1,1593 @@
+<!doctype html>
+
+<html lang="pt">
+
+  <head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <title>Calculadora de média de acesso ao Ensino Superior</title>
+
+  <style>
+
+body {
+
+    width: 100%;
+
+    min-height: 900px;
+
+    background-color: #4d79ff;
+
+    font-family: 'Open Sans', sans-serif;
+
+    letter-spacing: 1px;
+
+/*background: #1998a4 no-repeat 0 0 / cover url("img/abstraction-1347675_1920.jpg");
+
+background: #1998a4 no-repeat 0 0 / cover url("img/watercolour-1325656_1920.jpg");*/
+
+height: 100%;
+
+color:#FFF;
+
+}
+
+hr {
+
+    margin-top: 0rem;
+
+}
+
+.form-signin {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  padding: 15px;
+
+  margin: auto;
+
+}
+
+.form-label-group {
+
+  position: relative;
+
+  margin-bottom: 1rem;
+
+}
+
+.form-label-group > input,
+
+.form-label-group > label {
+
+  height: 3.125rem;
+
+  padding: .75rem;
+
+}
+
+.form-label-group > label {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+
+  margin-bottom: 0; /* Override default `<label>` margin */
+
+  line-height: 1.5;
+
+  color: #495057;
+
+  pointer-events: none;
+
+  cursor: text; /* Match the input under the label */
+
+  border: 1px solid transparent;
+
+  border-radius: .25rem;
+
+  transition: all .1s ease-in-out;
+
+}
+
+.form-label-group input::-webkit-input-placeholder {
+
+  color: transparent;
+
+}
+
+.form-label-group input:-ms-input-placeholder {
+
+  color: transparent;
+
+}
+
+.form-label-group input::-ms-input-placeholder {
+
+  color: transparent;
+
+}
+
+.form-label-group input::-moz-placeholder {
+
+  color: transparent;
+
+}
+
+.form-label-group input::placeholder {
+
+  color: transparent;
+
+}
+
+.form-label-group input:not(:placeholder-shown) {
+
+  padding-top: 1.25rem;
+
+  padding-bottom: .25rem;
+
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label {
+
+  padding-top: .25rem;
+
+  padding-bottom: .25rem;
+
+  font-size: 12px;
+
+  color: #777;
+
+}
+
+/* Fallback for Edge
+
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+
+  .form-label-group > label {
+
+    display: none;
+
+  }
+
+  .form-label-group input::-ms-input-placeholder {
+
+    color: #777;
+
+  }
+
+}
+
+/* Fallback for IE
+
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+  .form-label-group > label {
+
+    display: none;
+
+  }
+
+  .form-label-group input:-ms-input-placeholder {
+
+    color: #777;
+
+  }
+
+}
+
+  .bd-placeholder-img {
+
+font-size: 1.125rem;
+
+text-anchor: middle;
+
+-webkit-user-select: none;
+
+-moz-user-select: none;
+
+-ms-user-select: none;
+
+user-select: none;
+
+  }
+
+  @media (min-width: 768px) {
+
+.bd-placeholder-img-lg {
+
+  font-size: 3.5rem;
+
+}
+
+  }
+
+ 
+
+@media (min-width: 767px) {
+
+.mobile{
+
+display:none;
+
+}
+
+.pc{
+
+display:flex;
+
+}
+
+}
+
+@media (max-width: 767px) {
+
+.mobile{
+
+display:flex;
+
+}
+
+.pc{
+
+display:none;
+
+}
+
+}
+
+  button, input, select, textarea {
+
+    width: 100%;
+
+}
+
+.checkstyle {
+
+  display: inline;
+
+  position: relative;
+
+  padding-left: 35px;
+
+  margin-bottom: 12px;
+
+  cursor: pointer;
+
+  font-size: 22px;
+
+  -webkit-user-select: none;
+
+  -moz-user-select: none;
+
+  -ms-user-select: none;
+
+  user-select: none;
+
+}
+
+.checkstyle input {
+
+  position: absolute;
+
+  opacity: 0;
+
+  cursor: pointer;
+
+  height: 0;
+
+  width: 0;
+
+}
+
+.checkmark {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  height: 25px;
+
+  width: 25px;
+
+  background-color: #d5d5d5;
+
+  border: 1px solid black;
+
+}
+
+.checkstyle:hover input ~ .checkmark {
+
+  background-color: #aeaeae;
+
+}
+
+.checkstyle input:checked ~ .checkmark {
+
+  background-color: #2196F3;
+
+}
+
+.checkmark:after {
+
+  content: "";
+
+  position: absolute;
+
+  display: none;
+
+}
+
+.checkstyle input:checked ~ .checkmark:after {
+
+  display: block;
+
+}
+
+  #resultadoerro{
+
+  display: none;
+
+  }
+
+.checkstyle .checkmark:after {
+
+  left: 9px;
+
+top: 4px;
+
+width: 7px;
+
+height: 15px;
+
+  border: solid white;
+
+  border-width: 0 3px 3px 0;
+
+  -webkit-transform: rotate(45deg);
+
+  -ms-transform: rotate(45deg);
+
+  transform: rotate(45deg);
+
+}
+
+ 
+
+ 
+
+ 
+
+.select {
+
+    position: relative;
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    width: 100%;
+
+}    .select select {
+
+        font-family: 'Arial';
+
+        display: inline-block;
+
+        width: 100%;
+
+        cursor: pointer;
+
+        padding: 2px 6px;
+
+        outline: 0;
+
+        border: 1px solid #2196F3;
+
+        border-radius: 0px;
+
+        background: #ffffff;
+
+        color: #000;
+
+        appearance: none;
+
+        -webkit-appearance: none;
+
+        -moz-appearance: none;
+
+    }
+
+        .select select::-ms-expand {
+
+            display: none;
+
+        }
+
+        .select select:hover,
+
+        .select select:focus {
+
+            color: #000000;
+
+            background: #ffffff;
+
+        }
+
+        .select select:disabled {
+
+            opacity: 0.4;
+
+            pointer-events: none;
+
+        }
+
+.select_arrow {
+
+    position: absolute;
+
+top: 11px;
+
+right: 12px;
+
+    width: 9px;
+
+    height: 9px;
+
+    border: solid #2196f3;
+
+    border-width: 0 3px 3px 0;
+
+    display: inline-block;
+
+    padding: 3px;
+
+    transform: rotate(45deg);
+
+    -webkit-transform: rotate(45deg);
+
+}
+
+.select select:hover ~ .select_arrow,
+
+.select select:focus ~ .select_arrow {
+
+    border-color: #2196f3;
+
+}
+
+.select select:disabled ~ .select_arrow {
+
+    border-top-color: #cccccc;
+
+}
+
+.sandbox-correct-pronounciation {
+
+  padding: 30px 0 30px 0;
+
+}
+
+.heading-correct-pronounciation {
+
+  margin: auto;
+
+  text-align: center;
+
+  position: relative;
+
+}
+
+em {
+
+color: #FFF;
+
+  font-size: 0.6em;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+
+  display: block;
+
+  font-style:normal;
+
+  text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.1);
+
+ 
+
+  &::before, &::after {
+
+  content: "§";
+
+  display: inline-block;
+
+  -webkit-transform: rotate(90deg);
+
+  -moz-transform: rotate(90deg);
+
+  -o-transform: rotate(90deg);
+
+  -ms-transform: rotate(90deg);
+
+  transform: rotate(90deg);
+
+opacity: 0.2;
+
+  margin: 0 0.6em;
+
+  font-size: 0.5em;
+
+}
+
+}
+
+.bottom {
+
+  font-size: 1.5em;
+
+  letter-spacing: 0.07em;
+
+  font-size: 1em;
+
+  display: block;
+
+}
+
+.box h3{
+
+  text-align:center;
+
+position:relative;
+
+}
+
+.box {
+
+width: 100%;
+
+height: 200px;
+
+background: #FFF;
+
+padding: 20px;
+
+margin-bottom: 20px;
+
+}
+
+.effect2
+
+{
+
+  position: relative;
+
+}
+
+.effect2:before, .effect2:after
+
+{
+
+  z-index: -1;
+
+  position: absolute;
+
+  content: "";
+
+  bottom: 15px;
+
+  left: 10px;
+
+  width: 50%;
+
+  top: 80%;
+
+  max-width:300px;
+
+  background: #777;
+
+  -webkit-box-shadow: 0 15px 10px #777;
+
+  -moz-box-shadow: 0 15px 10px #777;
+
+  box-shadow: 0 15px 10px #777;
+
+  -webkit-transform: rotate(-3deg);
+
+  -moz-transform: rotate(-3deg);
+
+  -o-transform: rotate(-3deg);
+
+  -ms-transform: rotate(-3deg);
+
+  transform: rotate(-3deg);
+
+}
+
+.effect2:after
+
+{
+
+  -webkit-transform: rotate(3deg);
+
+  -moz-transform: rotate(3deg);
+
+  -o-transform: rotate(3deg);
+
+  -ms-transform: rotate(3deg);
+
+  transform: rotate(3deg);
+
+  right: 10px;
+
+  left: auto;
+
+}
+
+ 
+
+  .h3, h3 {
+
+    font-size: 1.3rem;
+
+}
+
+.underline {
+
+border-bottom: 3px solid #000;
+
+display: inline-block;
+
+line-height: 1;
+
+text-shadow: 2px 2px white, 2px -2px white, -2px 2px white, -2px -2px white;
+
+color: #000;
+
+font-size: 1.5rem;
+
+  }
+
+ 
+
+  .underlinepeq {
+
+display: inline-block;
+
+line-height: 1;
+
+text-shadow: 2px 2px white, 2px -2px white, -2px 2px white, -2px -2px white;
+
+color: #000;
+
+font-size: 1rem;
+
+  }
+
+ 
+
+  .fontgrande{
+
+  font-size: 3rem;
+
+color: #008ca7;
+
+  }
+
+  .container-fluid{
+
+  padding-top: 3rem;
+
+  }
+
+  #resultadofinalcaixa,#resultadofinalcaixaingresso{
+
+  display: none;
+
+  }
+
+  #resultadofinalcaixaingresso{
+
+  text-align: center;
+
+  }
+
+  .preto{
+
+  color:#000;
+
+  }
+
+</style>
+
+  </head>
+
+  <body>
+
+<nav class="navbar navbar-light bg-dark">
+
+  <a class="navbar-brand" href="https://aneasyfuture.wixsite.com/home">
+
+  <img src="https://static.wixstatic.com/media/3ccf93_0bb27bcf1f4641188933726f83d34f1f~mv2.png" alt="Easy Future" title="Easy Future" class="logo">
+
+  </a><div class="sandbox sandbox-correct-pronounciation">
+
+  <h1 class="heading heading-correct-pronounciation">
+
+    <em>Calculadora de média de acesso ao Ensino Superior    -   By EasyFuture</em>
+
+  </h1>
+
+</div>
+
+</nav>
+
+<div id="Secondary" class="tabcontent">
+
+			<!-- <div class="tabs_right">
+
+				<a href="#" class="tab" data-target-modal="instructions"><i class="fa fa-th-list"></i>&nbsp;&nbsp;INSTRUÇÕES</a>
+
+			</div> -->
+
+			<div style="clear: both;"></div>
+
+			<div class="update_profile" style="width: 100%">
+
+				<form accept-charset="UTF-8" action="/users/133540/process_cfes_maio_covid" id="media-12-maio-covid" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="C+mIyEfgrFPfvdIiu9sX7+VDc5a/+2CZ3/wjck/VWow=" /></div>
+
+				<table class="calculate_media" cellspacing="1" style="width: 100%">
+
+					<thead>
+
+						<tr>
+
+							<th style="width: 40%;">Disciplina</th>
+
+							<th style="text-align:center;">  10º ANO</th>
+
+							<th style="text-align:center;">  11º ANO</th>
+
+							<th style="text-align:center;">  12º ANO</th>
+
+						</tr>
+
+					</thead>
+
+					<tr><br><br\>
+
+						<td><br><br\>
+
+							<strong>Português</strong>
+
+						</td>
+
+						<td><br><br\>
+
+							<input type="number" name="pt_10" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td><br><br\>
+
+							<input type="number" name="pt_11" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td><br><br\>
+
+							<input type="number" name="pt_12" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<strong>Língua Estrangeira</strong>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="le_10" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="le_11" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<strong>Filosofia</strong>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="fi_10" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="fi_11" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="trienal_id" id="" required>
+
+									<option value="" selected disabled>Trienal</option>
+
+									<option value="2" >Matemática A</option>
+
+									<option value="3" >História A</option>
+
+									<option value="4" >Desenho A</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="trienal_10" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="trienal_11" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="trienal_12" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="bienal_i_id" id="" required>
+
+									<option value="" selected disabled>Bienal I</option>
+
+									<option value="5" >Física e Química A</option>
+
+									<option value="6" >Biologia e Geologia</option>
+
+									<option value="7" >Geometria Descritiva A</option>
+
+									<option value="8" >Economia A</option>
+
+									<option value="9" >Geografia A</option>
+
+									<option value="10" >História B</option>
+
+									<option value="11" >Latim A</option>
+
+									<option value="12" >Alemão</option>
+
+									<option value="13" >Espanhol</option>
+
+									<option value="14" >Francês</option>
+
+									<option value="15" >Literatura Portuguesa</option>
+
+									<option value="16" >Mat. Apl. Ciências Soc.</option>
+
+									<option value="17" >Matemática B</option>
+
+									<option value="18" >Hist. da Cultura e Artes</option>
+
+									<option value="19" >Filosofia</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="bienal_i_10" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="bienal_i_11" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="bienal_ii_id" id="" required>
+
+									<option value="" selected disabled>Bienal II</option>
+
+									<option value="5" >Física e Química A</option>
+
+									<option value="6" >Biologia e Geologia</option>
+
+									<option value="7" >Geometria Descritiva A</option>
+
+									<option value="8" >Economia A</option>
+
+									<option value="9" >Geografia A</option>
+
+									<option value="10" >História B</option>
+
+									<option value="11" >Latim A</option>
+
+									<option value="12" >Alemão</option>
+
+									<option value="13" >Espanhol</option>
+
+									<option value="14" >Francês</option>
+
+									<option value="15" >Literatura Portuguesa</option>
+
+									<option value="16" >Mat. Apl. Ciências Soc.</option>
+
+									<option value="17" >Matemática B</option>
+
+									<option value="18" >Hist. da Cultura e Artes</option>
+
+									<option value="19" >Filosofia</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="bienal_ii_10" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="bienal_ii_11" placeholder="0-20" value="" required min="0" max="20"/>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<strong>Anual I</strong>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="anual_i_12" placeholder="0-20" value="" required min="10" max="20"/>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<strong>Anual II</strong>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+						<td>
+
+							<span class="secondary_text">-</span>
+
+						</td>
+
+						<td>
+
+							<input type="number" name="anual_ii_12" placeholder="0-20" value="" required min="10" max="20"/>
+
+						</td>
+
+					</tr>
+
+				</table>
+
+<br><br\><br><br\>
+
+				<table class="calculate_media other_exams" cellspacing="0" style="width: 100%">
+
+					<thead>
+
+						<tr>
+
+							<th style="font-size:200%" colspan="4">Exames Nacionais</th>
+
+						</tr>
+
+					</thead>
+
+					<tr>
+
+						<td colspan="4">
+
+							<div class="info_repeat">
+
+								<div class="repeat_icon">
+
+									<i class="fa fa-info-circle"></i>
+
+								</div><br><br\>
+
+								<div style="font-size:120%" class="repeat_text">
+
+									Coloca aqui todos os exames nacionais que realizaste EM PONTOS (0-200)
+
+								</div><br><br\>
+
+							</div>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="exams[]" id="exam_1" required="">
+
+									<option value="" selected disabled>Exame Nacional</option>
+
+									<option value="1">01 Alemão</option>
+
+									<option value="2">02 Biologia e Geologia</option>
+
+									<option value="3">03 Desenho</option>
+
+									<option value="4">04 Economia</option>
+
+									<option value="5">05 Espanhol</option>
+
+									<option value="6">06 Filosofia</option>
+
+									<option value="7">07 Física e Química</option>
+
+									<option value="8">08 Francês</option>
+
+									<option value="9">09 Geografia</option>
+
+									<option value="10">10 Geometria Descritiva</option>
+
+									<option value="11">11 História</option>
+
+									<option value="12">12 História Cult. Artes</option>
+
+									<option value="13">13 Inglês</option>
+
+									<option value="14">14 Latim</option>
+
+									<option value="15">15 Literatura Portuguesa</option>
+
+									<option value="16">16 Matemática</option>
+
+									<option value="17">17 Mat. Apl. Ciências Soc.</option>
+
+									<option value="18">18 Português</option>
+
+									<option value="19">19 Matemática A</option>
+
+									<option value="20">20 Mandarim</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td style="text-align: center;">
+
+							<input type="number" name="exam_notes[]" placeholder="0-200" value="" step="any" id="exam_notes_1" min="0" max="200" required />
+
+						</td>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="exams[]" id="">
+
+									<option value="" selected disabled>Exame Nacional</option>
+
+									<option value="1">01 Alemão</option>
+
+									<option value="2">02 Biologia e Geologia</option>
+
+									<option value="3">03 Desenho</option>
+
+									<option value="4">04 Economia</option>
+
+									<option value="5">05 Espanhol</option>
+
+									<option value="6">06 Filosofia</option>
+
+									<option value="7">07 Física e Química</option>
+
+									<option value="8">08 Francês</option>
+
+									<option value="9">09 Geografia</option>
+
+									<option value="10">10 Geometria Descritiva</option>
+
+									<option value="11">11 História</option>
+
+									<option value="12">12 História Cult. Artes</option>
+
+									<option value="13">13 Inglês</option>
+
+									<option value="14">14 Latim</option>
+
+									<option value="15">15 Literatura Portuguesa</option>
+
+									<option value="16">16 Matemática</option>
+
+									<option value="17">17 Mat. Apl. Ciências Soc.</option>
+
+									<option value="18">18 Português</option>
+
+									<option value="19">19 Matemática A</option>
+
+									<option value="20">20 Mandarim</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td style="text-align: center;">
+
+							<input type="number" name="exam_notes[]" placeholder="0-200" value="" step="any" min="0" max="200"/>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="exams[]" id="">
+
+									<option value="" selected disabled>Exame Nacional</option>
+
+									<option value="1">01 Alemão</option>
+
+									<option value="2">02 Biologia e Geologia</option>
+
+									<option value="3">03 Desenho</option>
+
+									<option value="4">04 Economia</option>
+
+									<option value="5">05 Espanhol</option>
+
+									<option value="6">06 Filosofia</option>
+
+									<option value="7">07 Física e Química</option>
+
+									<option value="8">08 Francês</option>
+
+									<option value="9">09 Geografia</option>
+
+									<option value="10">10 Geometria Descritiva</option>
+
+									<option value="11">11 História</option>
+
+									<option value="12">12 História Cult. Artes</option>
+
+									<option value="13">13 Inglês</option>
+
+									<option value="14">14 Latim</option>
+
+									<option value="15">15 Literatura Portuguesa</option>
+
+									<option value="16">16 Matemática</option>
+
+									<option value="17">17 Mat. Apl. Ciências Soc.</option>
+
+									<option value="18">18 Português</option>
+
+									<option value="19">19 Matemática A</option>
+
+									<option value="20">20 Mandarim</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td style="text-align: center;">
+
+							<input type="number" name="exam_notes[]" placeholder="0-200" value="" step="any" min="0" max="200"/>
+
+						</td>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="exams[]" id="">
+
+									<option value="" selected disabled>Exame Nacional</option>
+
+									<option value="1">01 Alemão</option>
+
+									<option value="2">02 Biologia e Geologia</option>
+
+									<option value="3">03 Desenho</option>
+
+									<option value="4">04 Economia</option>
+
+									<option value="5">05 Espanhol</option>
+
+									<option value="6">06 Filosofia</option>
+
+									<option value="7">07 Física e Química</option>
+
+									<option value="8">08 Francês</option>
+
+									<option value="9">09 Geografia</option>
+
+									<option value="10">10 Geometria Descritiva</option>
+
+									<option value="11">11 História</option>
+
+									<option value="12">12 História Cult. Artes</option>
+
+									<option value="13">13 Inglês</option>
+
+									<option value="14">14 Latim</option>
+
+									<option value="15">15 Literatura Portuguesa</option>
+
+									<option value="16">16 Matemática</option>
+
+									<option value="17">17 Mat. Apl. Ciências Soc.</option>
+
+									<option value="18">18 Português</option>
+
+									<option value="19">19 Matemática A</option>
+
+									<option value="20">20 Mandarim</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td style="text-align: center;">
+
+							<input type="number" name="exam_notes[]" placeholder="0-200" value="" step="any" min="0" max="200"/>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+    					<td colspan="4"><hr></td>
+
+					</tr>
+
+					<tr>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="exams[]" id="">
+
+									<option value="" selected disabled>Exame Nacional</option>
+
+									<option value="1">01 Alemão</option>
+
+									<option value="2">02 Biologia e Geologia</option>
+
+									<option value="3">03 Desenho</option>
+
+									<option value="4">04 Economia</option>
+
+									<option value="5">05 Espanhol</option>
+
+									<option value="6">06 Filosofia</option>
+
+									<option value="7">07 Física e Química</option>
+
+									<option value="8">08 Francês</option>
+
+									<option value="9">09 Geografia</option>
+
+									<option value="10">10 Geometria Descritiva</option>
+
+									<option value="11">11 História</option>
+
+									<option value="12">12 História Cult. Artes</option>
+
+									<option value="13">13 Inglês</option>
+
+									<option value="14">14 Latim</option>
+
+									<option value="15">15 Literatura Portuguesa</option>
+
+									<option value="16">16 Matemática</option>
+
+									<option value="17">17 Mat. Apl. Ciências Soc.</option>
+
+									<option value="18">18 Português</option>
+
+									<option value="19">19 Matemática A</option>
+
+									<option value="20">20 Mandarim</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td style="text-align: center;">
+
+							<input type="number" name="exam_notes[]" placeholder="0-200" value="" step="any" min="0" max="200"/>
+
+						</td>
+
+						<td>
+
+							<div class="select_wrapper">
+
+								<select name="exams[]" id="">
+
+									<option value="" selected disabled>Exame Nacional</option>
+
+									<option value="1">01 Alemão</option>
+
+									<option value="2">02 Biologia e Geologia</option>
+
+									<option value="3">03 Desenho</option>
+
+									<option value="4">04 Economia</option>
+
+									<option value="5">05 Espanhol</option>
+
+									<option value="6">06 Filosofia</option>
+
+									<option value="7">07 Física e Química</option>
+
+									<option value="8">08 Francês</option>
+
+									<option value="9">09 Geografia</option>
+
+									<option value="10">10 Geometria Descritiva</option>
+
+									<option value="11">11 História</option>
+
+									<option value="12">12 História Cult. Artes</option>
+
+									<option value="13">13 Inglês</option>
+
+									<option value="14">14 Latim</option>
+
+									<option value="15">15 Literatura Portuguesa</option>
+
+									<option value="16">16 Matemática</option>
+
+									<option value="17">17 Mat. Apl. Ciências Soc.</option>
+
+									<option value="18">18 Português</option>
+
+									<option value="19">19 Matemática A</option>
+
+									<option value="20">20 Mandarim</option>
+
+								</select>
+
+							</div>
+
+						</td>
+
+						<td style="text-align: center;">
+
+							<input type="number" name="exam_notes[]" placeholder="0-200" value="" step="any" min="0" max="200"/>
+
+						</td>
+
+					</tr>
+
+				</table>
+
+				<div class="field confirm" style="margin-top: 70px; text-align: center;">
+
+					<input type="submit" value="CALCULAR MÉDIA"/>
+
+				</div>
+
+</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+<p>'bienal_ii_10'</p>
+
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
